@@ -1,0 +1,154 @@
+.brand {
+    font-weight: bold; /* Make the brand name bold */
+    font-size: 22px; /* Adjust the font size as needed */
+    margin-right: 20px; /* Pushes the brand name to the left side */
+    margin-left: 20px; /* Adds some space to the left of the brand name */
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white; /* Color of the brand name */
+    text-decoration: none; /* Remove underline from the brand name */
+}
+.navbar {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Center align the brand name on the left */
+    align-items: center; /* Vertically center the items */
+    padding: 0 20px; /* Add padding to the navbar */
+    padding-bottom: 20px;
+}
+/* Default button styles */
+button {
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 5px;
+  background-color: #16c406;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(5, 104, 12, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms;
+}
+
+button:hover {
+  color: #e8e8e8;
+}
+
+button:hover::before {
+  width: 100%;
+}
+
+/* Button size reduction on small screens */
+@media screen and (max-width: 767px) {
+  button {
+    padding: 10px 15px; /* Reduced padding */
+    border-radius: 10px; /* Reduced border radius */
+    font-size: 15px; /* Reduced font size */
+  }
+
+  button::before {
+    border-radius: 10px; /* Reduced border radius */
+  }
+}
+
+
+/*search bar*/
+#search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #search-input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius:10px;
+            font-size: 16px;
+            outline: none;
+            margin-top: auto;
+        }
+        /* Media query for small screens */
+@media screen and (max-width: 600px) {
+    /* Navbar becomes a column layout */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Center brand name */
+    .brand {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    /* Search bar and location button take full width */
+    .search-location {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+/* Profile option styles */
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+@media screen and (max-width: 600px) {
+    /* Move profile icon to the top right corner */
+    .profile {
+        position: absolute;
+        top: 10px; /* Adjust the top position as needed */
+        right: 20px; /* Adjust the right position as needed */
+    }
+}
+
+
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Ensure it appears on top of other content */
+}
+
+/* Custom CSS to align text */
+.category-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+

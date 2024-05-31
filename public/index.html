@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body style="margin: 0px;">
+    <nav class="navbar" style="height: auto; width: auto;
+     background-color: rgb(28, 113, 187); border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;">
+    <a href="#" class="brand">NEEBYS</a>
+    <input type="text" id="search-input" name="search" placeholder="Search...">
+    <button style="top: 5px;"> Location
+    </button>
+    <div class="profile" id="userIcon">
+        <img src="profile.jpg" alt="Profile Picture">
+    </div>
+    
+    
+      
+    </nav>
+    <div style="padding-left: 20px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px;">
+      <div>
+        <img src="https://www.apple.com/v/iphone-14-pro/a/images/overview/hero/hero_iphone_14_pro__kzr001ge0262_large.jpg" height="200px" width="100%" style="height: 200px; width: 100%; border-radius: 20px;" alt="">
+      </div>
+
+      <br>
+      <div class="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-6 gap-4" style="padding-top: 10px;">
+        <!-- Category box 1 -->
+        <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2"><b>Electronics</b></h2>
+        </div>
+
+         <!-- Category box 2 -->
+         <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2"><b>Clothes</b></h2>
+        </div>
+
+          <!-- Category box 3 -->
+          <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2">Toys</h2>
+        </div>
+
+         <!-- Category box 4 -->
+         <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2"><b>Automotive tools</b></h2>
+        </div> 
+                
+        <!-- Category box 5 -->
+        <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2"></h2>
+        </div> 
+
+        <!-- Category box 6 -->
+        <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2">Category 6</h2>
+        </div>
+
+        <!-- Category box 7 -->
+        <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2">Category 7</h2>
+        </div>
+
+         <!-- Category box 8 -->
+         <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2">Category 8</h2>
+        </div>
+
+        <!-- Category box 9 -->
+        <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2">Category 9</h2>
+        </div>
+
+         <!-- Category box 10 -->
+         <div class="bg-white p-4 rounded-lg shadow-md category-box">
+            <h2 class="text-sm font-semibold mb-2">Category 10</h2>
+        </div>
+    </div>
+  <br>
+    <div><b>Explore more</b>
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6" style="width: auto; height: 300px; background-color: antiquewhite; border-radius: 20px;">
+    <div style="height: auto; width: auto; background-color: white; margin-top: 20px; margin-right: 20px; margin-left: 20px; margin-bottom: 20px; border-radius: 10px;">
+    <img src="https://s.yimg.com/fz/api/res/1.2/Hq6DlnYkbGZDZk8Tin3ceg--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpdDtoPTI2MDtxPTgwO3c9MzMy/https://s.yimg.com/zb/imgv1/03ead20b-8bd3-3118-b8fb-7be20bebcf1a/t_500x300" alt="" style="height: auto; width: auto; border-radius: 10px;">
+    <h1>BOAT HEADPHONES</h1>
+    <p>Rs.300</p>
+    <!-- this is add to cart button -->
+    <div id="cart-controls">
+        <button id="add-to-cart" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300" onclick="initializeCart()">Add to Cart</button>
+    </div>
+    
+    </div>
+    </div>
+    </div>
+
+    <div class="fixed-bottom" id="orderHtml">
+        Add to cart
+    </div>
+
+
+    <script src="/src/index.js">
+    </script>
+</body>
+</html>

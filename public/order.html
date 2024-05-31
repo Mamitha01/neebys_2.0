@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .cart-item-details {
+            flex-grow: 1;
+        }
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+        }
+        .cart-item-controls input {
+            width: 50px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        .cart-item-controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .cart-item-controls button:hover {
+            background-color: #0056b3;
+        }
+        .total {
+            text-align: right;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        .checkout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .checkout-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Cart</h1>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="total" id="cart-total">
+            <!-- Total price will be dynamically inserted here -->
+        </div>
+        <button class="checkout-button" id="checkout-button">Proceed to Checkout</button>
+    </div>
+
+    <script>
+        // Example cart data, in a real application this would come from your backend or local storage
+        const cartData = [
+            { id: 1, name: 'Product 1', price: 19.99, quantity: 1, image: 'https://via.placeholder.com/80' },
+            { id: 2, name: 'Product 2', price: 29.99, quantity: 2, image: 'https://via.placeholder.com/80' }
+        ];
+
+        // Function to render cart items
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cartData.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <h3>${item.name}</h3>
+                        <p>$${item.price.toFixed(2)} x ${item.quantity} = $${itemTotal.toFixed(2)}</p>
+                    </div>
+                    <div class="cart-item-controls">
+                        <input type="number" min="1" value="${item.quantity}" data-id="${item.id}">
+                        <button data-id="${item.id}">Remove</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            document.getElementById('cart-total').innerText = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Function to update item quantity
+        function updateQuantity(id, quantity) {
+            const item = cartData.find(item => item.id === id);
+            if (item) {
+                item.quantity = quantity;
+                renderCart();
+            }
+        }
+
+        // Function to remove item from cart
+        function removeItem(id) {
+            const itemIndex = cartData.findIndex(item => item.id === id);
+            if (itemIndex > -1) {
+                cartData.splice(itemIndex, 1);
+                renderCart();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+
+            document.getElementById('cart-items').addEventListener('input', (e) => {
+                if (e.target.type === 'number') {
+                    const id = parseInt(e.target.dataset.id);
+                    const quantity = parseInt(e.target.value);
+                    updateQuantity(id, quantity);
+                }
+            });
+
+            document.getElementById('cart-items').addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    const id = parseInt(e.target.dataset.id);
+                    removeItem(id);
+                }
+            });
+
+            document.getElementById('checkout-button').addEventListener('click', () => {
+                alert('Proceeding to checkout');
+                // Redirect to checkout page or handle checkout logic here
+            });
+        });
+    </script>
+</body>
+</html>
